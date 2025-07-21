@@ -23,8 +23,7 @@
       "Oi! Quero o Bobbie Good de Jesus! Cupom: {fbclid}",
       "Olá! Vi o anúncio dos desenhos cristãos. Código: {fbclid}",
       "Oi! Gostaria de receber os desenhos. Cupom: {fbclid}",
-      "Olá! Tenho interesse nos desenhos cristãos. Ref: {fbclid}",
-      "Oi! Vi sobre os desenhos para ansiedade. Cupom: {fbclid}"
+      "Olá! Tenho interesse nos desenhos cristãos. Ref: {fbclid}"
     ];
     
     // Capturar parâmetros da URL com múltiplas fontes
@@ -69,7 +68,7 @@
     
     // Gerar URL do WhatsApp
     const whatsappUrl = `https://wa.me/${NUMERO}?text=${encodeURIComponent(mensagem)}`;
-    
+     
     // Redirecionar imediatamente
     window.location.href = whatsappUrl;
     
