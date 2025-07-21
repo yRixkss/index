@@ -27,16 +27,32 @@
       "Oi! Vi sobre os desenhos para ansiedade. Cupom: {fbclid}"
     ];
     
-    // Capturar parâmetros da URL
+    // Capturar parâmetros da URL com múltiplas fontes
     const urlParams = new URLSearchParams(window.location.search);
-    const fbclid = urlParams.get('fbclid') || 'organico';
-    const campaign = urlParams.get('campaign') || urlParams.get('utm_campaign') || '';
-    const adset = urlParams.get('adset') || '';
     
-    // Criar ID único para tracking
-    let trackingId = fbclid;
-    if (campaign && campaign !== 'organico') {
-      trackingId = `${fbclid}_${campaign.substring(0,3)}`;
+    // Tentar múltiplas fontes de tracking ID
+    const fbclid = urlParams.get('fbclid');
+    const gclid = urlParams.get('gclid'); 
+    const utmSource = urlParams.get('utm_source');
+    const campaign = urlParams.get('campaign') || urlParams.get('utm_campaign') || '';
+    const source = urlParams.get('source') || '';
+    
+    // Determinar ID de tracking com fallbacks
+    let trackingId = 'organico';
+    let origem = 'organico';
+    
+    if (fbclid) {
+      trackingId = fbclid.substring(0, 12); // Primeiros 12 chars do fbclid
+      origem = 'facebook_ads';
+    } else if (gclid) {
+      trackingId = gclid.substring(0, 12);
+      origem = 'google_ads'; 
+    } else if (campaign) {
+      trackingId = campaign;
+      origem = 'campaign_' + (source || utmSource || 'unknown');
+    } else if (source === 'facebook') {
+      trackingId = 'fb_' + Date.now().toString().slice(-6); // ID único baseado em timestamp
+      origem = 'facebook_organic';
     }
     
     // Escolher mensagem aleatória
