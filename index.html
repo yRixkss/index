@@ -2,17 +2,67 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Redirecionando...</title>
-  <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const fbclid = urlParams.get('fbclid') || 'sem_fbclid';
-    const numero = "553192548410";
-    const mensagem = `Oi! Quero o Bobbie Good de Jesus! Cupom: ${fbclid}`;
-    const redirectUrl = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
-    window.location.href = redirectUrl;
-  </script>
+  <style>
+    body { margin: 0; padding: 20px; font-family: Arial, sans-serif; text-align: center; }
+    .loading { margin-top: 50px; }
+  </style>
 </head>
 <body>
-  <p>Redirecionando para o WhatsApp...</p>
+  <div class="loading">
+    <p>Redirecionando para o WhatsApp...</p>
+  </div>
+
+  <script>
+    // Configurações
+    const NUMERO = "553192548410";
+    
+    // Mensagens variadas para parecer natural
+    const MENSAGENS = [
+      "Oi! Quero o Bobbie Good de Jesus! Cupom: {fbclid}",
+      "Olá! Vi o anúncio dos desenhos cristãos. Código: {fbclid}",
+      "Oi! Gostaria de receber os desenhos. Cupom: {fbclid}",
+      "Olá! Tenho interesse nos desenhos cristãos. Ref: {fbclid}",
+      "Oi! Vi sobre os desenhos para ansiedade. Cupom: {fbclid}"
+    ];
+    
+    // Capturar parâmetros da URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const fbclid = urlParams.get('fbclid') || 'organico';
+    const campaign = urlParams.get('campaign') || urlParams.get('utm_campaign') || '';
+    const adset = urlParams.get('adset') || '';
+    
+    // Criar ID único para tracking
+    let trackingId = fbclid;
+    if (campaign && campaign !== 'organico') {
+      trackingId = `${fbclid}_${campaign.substring(0,3)}`;
+    }
+    
+    // Escolher mensagem aleatória
+    const mensagemIndex = Math.floor(Math.random() * MENSAGENS.length);
+    const mensagem = MENSAGENS[mensagemIndex].replace('{fbclid}', trackingId);
+    
+    // Log para debug (remover em produção se não precisar)
+    console.log('Redirecionamento:', {
+      fbclid: fbclid,
+      campaign: campaign,
+      trackingId: trackingId,
+      mensagem: mensagem
+    });
+    
+    // Gerar URL do WhatsApp
+    const whatsappUrl = `https://wa.me/${NUMERO}?text=${encodeURIComponent(mensagem)}`;
+    
+    // Redirecionar imediatamente
+    window.location.href = whatsappUrl;
+    
+    // Fallback para casos onde o redirecionamento falha
+    setTimeout(() => {
+      if (document.visibilityState === 'visible') {
+        window.open(whatsappUrl, '_self');
+      }
+    }, 1000);
+  </script>
 </body>
 </html>
