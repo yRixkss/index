@@ -330,12 +330,12 @@
         <div class="preview-box">
             <p class="preview-title">📱 Você receberá no WhatsApp:</p>
             <div class="sample-items">
-                <div class="sample-item">🏔️ Heróis da Fé</div>
-                <div class="sample-item">👑 A Vida de Jesus</div>
-                <div class="sample-item">✨ Mulheres da Bíblia</div>
-                <div class="sample-item">🌈 Versículos e Promessas</div>
-                <div class="sample-item">🐑 Oração Pai Nosso</div>
-                <div class="sample-item">⭐ Virtudes</div>
+                <div class="sample-item">🏔️ Noé e a Arca</div>
+                <div class="sample-item">👑 Rei Davi</div>
+                <div class="sample-item">✨ Jesus Cristo</div>
+                <div class="sample-item">🌈 A Criação</div>
+                <div class="sample-item">🐑 O Bom Pastor</div>
+                <div class="sample-item">⭐ Os Reis Magos</div>
             </div>
             <p style="font-size: 12px; color: #6c757d; margin-top: 10px;">
                 + Instruções para colorir e ensinar a história
@@ -421,31 +421,33 @@
         const mensagem = MENSAGENS[mensagemIndex].replace('{fbclid}', trackingId);
         const whatsappUrl = `https://wa.me/${NUMERO}?text=${encodeURIComponent(mensagem)}`;
         
-        // Track eventos customizados do Facebook
-        setTimeout(() => {
-            if (typeof fbq !== 'undefined') {
-                // ViewContent após 2 segundos (engajamento)
-                fbq('track', 'ViewContent', {
-                    content_name: 'Desenhos Bíblicos Grátis',
-                    content_category: 'Lead Magnet',
-                    content_type: 'product',
-                    value: 0,
-                    currency: 'BRL'
-                });
-            }
-        }, 2000);
+        // Track tempo de permanência na página (analytics interno)
+        let timeOnPage = 0;
+        const pageStartTime = Date.now();
+        
+        setInterval(() => {
+            timeOnPage = Math.round((Date.now() - pageStartTime) / 1000);
+        }, 1000);
         
         // Função para redirecionamento WhatsApp
         function redirectToWhatsApp(buttonElement) {
-            // Track Lead event
+            // Track clique no botão (evento customizado para analytics interno)
             if (typeof fbq !== 'undefined') {
-                fbq('track', 'Lead', {
-                    content_name: 'Desenhos Bíblicos Grátis',
-                    content_category: 'Lead Magnet',
-                    value: 0,
-                    currency: 'BRL'
+                fbq('trackCustom', 'WhatsAppButtonClick', {
+                    button_type: buttonElement.id,
+                    time_on_page: timeOnPage,
+                    page_url: window.location.href
                 });
             }
+            
+            // Analytics interno (console log para debug)
+            console.log('WhatsApp Button Clicked:', {
+                button_id: buttonElement.id,
+                time_on_page: timeOnPage + 's',
+                tracking_id: trackingId,
+                origem: origem,
+                timestamp: new Date().toISOString()
+            });
             
             // Feedback visual
             const originalText = buttonElement.innerHTML;
