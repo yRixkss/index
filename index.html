@@ -3,45 +3,418 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Redirecionando...</title>
+  <title>🎨 Seus Desenhos Bíblicos Estão Prontos!</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <style>
-    body { margin: 0; padding: 20px; font-family: Arial, sans-serif; text-align: center; }
-    .loading { margin-top: 50px; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      color: #333;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px 30px;
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      animation: slideUp 0.6s ease-out;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .header {
+      margin-bottom: 30px;
+    }
+
+    .main-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #2d3748;
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 25px;
+    }
+
+    .product-image {
+      width: 120px;
+      height: 120px;
+      background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+      border-radius: 50%;
+      margin: 0 auto 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .benefits {
+      margin: 30px 0;
+    }
+
+    .benefit-item {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-bottom: 15px;
+      padding: 12px 15px;
+      background: rgba(103, 126, 234, 0.1);
+      border-radius: 10px;
+      border-left: 4px solid #667eea;
+      text-align: left;
+      animation: fadeInLeft 0.6s ease-out forwards;
+      opacity: 0;
+    }
+
+    .benefit-item:nth-child(1) { animation-delay: 0.2s; }
+    .benefit-item:nth-child(2) { animation-delay: 0.4s; }
+    .benefit-item:nth-child(3) { animation-delay: 0.6s; }
+    .benefit-item:nth-child(4) { animation-delay: 0.8s; }
+
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .benefit-icon {
+      color: #667eea;
+      margin-right: 12px;
+      font-size: 1.2rem;
+    }
+
+    .benefit-text {
+      font-weight: 600;
+      color: #2d3748;
+    }
+
+    .price-section {
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      color: white;
+      padding: 20px;
+      border-radius: 15px;
+      margin: 25px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .price-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+      animation: shine 3s infinite;
+    }
+
+    @keyframes shine {
+      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+      100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+    }
+
+    .price-text {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .price-subtext {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      position: relative;
+      z-index: 1;
+    }
+
+    .urgency {
+      background: #ff6b6b;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 25px;
+      font-weight: 600;
+      margin: 20px 0;
+      animation: urgencyPulse 2s infinite;
+    }
+
+    @keyframes urgencyPulse {
+      0%, 100% { transform: scale(1); background: #ff6b6b; }
+      50% { transform: scale(1.02); background: #ff5252; }
+    }
+
+    .cta-button {
+      background: linear-gradient(45deg, #25d366, #128c7e);
+      color: white;
+      padding: 18px 30px;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 20px;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+      position: relative;
+      overflow: hidden;
+      min-width: 280px;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
+    }
+
+    .cta-button:active {
+      transform: translateY(0);
+    }
+
+    .cta-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .cta-button:hover::before {
+      left: 100%;
+    }
+
+    .whatsapp-icon {
+      margin-right: 10px;
+      font-size: 1.3rem;
+    }
+
+    .security-badges {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+      opacity: 0.8;
+    }
+
+    .badge {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.8rem;
+      color: #666;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 4px;
+      background: #e2e8f0;
+      border-radius: 2px;
+      margin: 15px 0;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #667eea, #764ba2);
+      width: 0%;
+      border-radius: 2px;
+      animation: fillProgress 3s ease-out forwards;
+    }
+
+    @keyframes fillProgress {
+      to { width: 87%; }
+    }
+
+    .progress-text {
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 5px;
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 30px 20px;
+        margin: 10px;
+      }
+      
+      .main-title {
+        font-size: 1.8rem;
+      }
+      
+      .cta-button {
+        min-width: 250px;
+        padding: 16px 25px;
+      }
+    }
+
+    .floating-elements {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .floating-emoji {
+      position: absolute;
+      font-size: 2rem;
+      opacity: 0.1;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .floating-emoji:nth-child(1) { left: 10%; animation-delay: 0s; }
+    .floating-emoji:nth-child(2) { left: 20%; animation-delay: 1s; }
+    .floating-emoji:nth-child(3) { left: 80%; animation-delay: 2s; }
+    .floating-emoji:nth-child(4) { left: 70%; animation-delay: 3s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      33% { transform: translateY(-20px) rotate(5deg); }
+      66% { transform: translateY(-10px) rotate(-5deg); }
+    }
   </style>
 </head>
 <body>
-  <div class="loading">
-    <p>Redirecionando para o WhatsApp...</p>
+  <div class="floating-elements">
+    <div class="floating-emoji">🎨</div>
+    <div class="floating-emoji">📖</div>
+    <div class="floating-emoji">✨</div>
+    <div class="floating-emoji">🙏</div>
+  </div>
+
+  <div class="container">
+    <div class="header">
+      <div class="product-image">🎨</div>
+      <h1 class="main-title">Seus Desenhos Bíblicos Estão Prontos!</h1>
+      <p class="subtitle">Mais de <strong>90 desenhos</strong> para colorir e ensinar valores cristãos ✨</p>
+    </div>
+
+    <div class="benefits">
+      <div class="benefit-item">
+        <i class="fas fa-download benefit-icon"></i>
+        <span class="benefit-text">📥 Download imediato após o pagamento</span>
+      </div>
+      <div class="benefit-item">
+        <i class="fas fa-print benefit-icon"></i>
+        <span class="benefit-text">🖨️ Imprima quantas vezes quiser</span>
+      </div>
+      <div class="benefit-item">
+        <i class="fas fa-heart benefit-icon"></i>
+        <span class="benefit-text">📚 Histórias bíblicas educativas</span>
+      </div>
+      <div class="benefit-item">
+        <i class="fas fa-star benefit-icon"></i>
+        <span class="benefit-text">⭐ Qualidade profissional garantida</span>
+      </div>
+    </div>
+
+    <div class="price-section">
+      <div class="price-text">💰 Apenas R$ 10,00</div>
+      <div class="price-subtext">💳 Pagamento único • 🔄 Acesso vitalício</div>
+    </div>
+
+    <div class="urgency">
+      ⏰ Oferta limitada! Últimas 24h 🔥
+    </div>
+
+    <div class="progress-bar">
+      <div class="progress-fill"></div>
+    </div>
+    <div class="progress-text">
+      <strong>👨‍👩‍👧‍👦 87% dos pais</strong> já adquiriram hoje
+    </div>
+
+    <a href="#" id="whatsappButton" class="cta-button">
+      <i class="fab fa-whatsapp whatsapp-icon"></i>
+      QUERO MEUS DESENHOS AGORA
+    </a>
+
+    <div class="security-badges">
+      <div class="badge">
+        <i class="fas fa-shield-alt"></i>
+        <span>🔒 100% Seguro</span>
+      </div>
+      <div class="badge">
+        <i class="fas fa-medal"></i>
+        <span>🏆 Garantia</span>
+      </div>
+      <div class="badge">
+        <i class="fas fa-clock"></i>
+        <span>⚡ Entrega Imediata</span>
+      </div>
+    </div>
   </div>
 
   <script>
-    // Configurações
+    // Configurações (mantendo a lógica original)
     const NUMERO = "553192548410";
     
-    // Mensagens variadas para parecer natural
+    // Mensagens otimizadas para conversão
     const MENSAGENS = [
-      "Oi! Quero o Bobbie Good de Jesus! Cupom: {fbclid}",
-      "Olá! Vi o anúncio dos desenhos cristãos. Código: {fbclid}",
-      "Oi! Gostaria de receber os desenhos. Cupom: {fbclid}",
-      "Olá! Tenho interesse nos desenhos cristãos. Ref: {fbclid}"
+      "🎨 Olá! Quero adquirir os desenhos bíblicos para colorir! Cupom: {fbclid}",
+      "📖 Oi! Vi sobre os desenhos cristãos e tenho interesse! Cupom: {fbclid}", 
+      "✨ Olá! Gostaria de receber os desenhos bíblicos educativos. Cupom: {fbclid}",
+      "🙏 Oi! Quero os desenhos para ensinar valores cristãos. Cupom: {fbclid}"
     ];
     
-    // Capturar parâmetros da URL com múltiplas fontes
+    // Lógica de tracking (mantendo a original)
     const urlParams = new URLSearchParams(window.location.search);
-    
-    // Tentar múltiplas fontes de tracking ID
     const fbclid = urlParams.get('fbclid');
     const gclid = urlParams.get('gclid'); 
     const utmSource = urlParams.get('utm_source');
     const campaign = urlParams.get('campaign') || urlParams.get('utm_campaign') || '';
     const source = urlParams.get('source') || '';
     
-    // Determinar ID de tracking com fallbacks
     let trackingId = 'organico';
     let origem = 'organico';
     
     if (fbclid) {
-      trackingId = fbclid.substring(0, 12); // Primeiros 12 chars do fbclid
+      trackingId = fbclid.substring(0, 12);
       origem = 'facebook_ads';
     } else if (gclid) {
       trackingId = gclid.substring(0, 12);
@@ -50,34 +423,71 @@
       trackingId = campaign;
       origem = 'campaign_' + (source || utmSource || 'unknown');
     } else if (source === 'facebook') {
-      trackingId = 'fb_' + Date.now().toString().slice(-6); // ID único baseado em timestamp
+      trackingId = 'fb_' + Date.now().toString().slice(-6);
       origem = 'facebook_organic';
     }
     
-    // Escolher mensagem aleatória
     const mensagemIndex = Math.floor(Math.random() * MENSAGENS.length);
     const mensagem = MENSAGENS[mensagemIndex].replace('{fbclid}', trackingId);
+    const whatsappUrl = `https://wa.me/${NUMERO}?text=${encodeURIComponent(mensagem)}`;
     
-    // Log para debug (remover em produção se não precisar)
-    console.log('Redirecionamento:', {
-      fbclid: fbclid,
-      campaign: campaign,
+    // Event tracking para analytics
+    console.log('Página carregada:', {
+      origem: origem,
       trackingId: trackingId,
-      mensagem: mensagem
+      timestamp: new Date().toISOString()
     });
     
-    // Gerar URL do WhatsApp
-    const whatsappUrl = `https://wa.me/${NUMERO}?text=${encodeURIComponent(mensagem)}`;
-     
-    // Redirecionar imediatamente
-    window.location.href = whatsappUrl;
+    // Ação do botão
+    document.getElementById('whatsappButton').addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Analytics do clique
+      console.log('Botão clicado:', {
+        origem: origem,
+        trackingId: trackingId,
+        timestamp: new Date().toISOString()
+      });
+      
+      // Redirecionamento com feedback visual
+      this.innerHTML = '<i class="fas fa-spinner fa-spin whatsapp-icon"></i>Redirecionando...';
+      this.style.background = 'linear-gradient(45deg, #128c7e, #075e54)';
+      
+      setTimeout(() => {
+        window.location.href = whatsappUrl;
+      }, 800);
+      
+      // Fallback
+      setTimeout(() => {
+        if (document.visibilityState === 'visible') {
+          window.open(whatsappUrl, '_self');
+        }
+      }, 2000);
+    });
+
+    // Efeitos de urgência dinâmicos
+    setInterval(() => {
+      const urgencyElement = document.querySelector('.urgency');
+      urgencyElement.style.transform = 'scale(1.02)';
+      setTimeout(() => {
+        urgencyElement.style.transform = 'scale(1)';
+      }, 200);
+    }, 5000);
+
+    // Contador de visitantes simulado (para criar urgência social)
+    let visitorsCount = 87 + Math.floor(Math.random() * 13);
     
-    // Fallback para casos onde o redirecionamento falha
-    setTimeout(() => {
-      if (document.visibilityState === 'visible') {
-        window.open(whatsappUrl, '_self');
+    setInterval(() => {
+      if (Math.random() > 0.7) {
+        visitorsCount += Math.floor(Math.random() * 3) + 1;
+        if (visitorsCount > 95) visitorsCount = 87 + Math.floor(Math.random() * 8);
+        
+        document.querySelector('.progress-text').innerHTML = 
+          `<strong>👨‍👩‍👧‍👦 ${visitorsCount}% dos pais</strong> já adquiriram hoje`;
+        
+        document.querySelector('.progress-fill').style.width = visitorsCount + '%';
       }
-    }, 1000);
+    }, 8000);
   </script>
 </body>
 </html>
