@@ -431,12 +431,12 @@
         
         // Função para redirecionamento WhatsApp
         function redirectToWhatsApp(buttonElement) {
-            // Track clique no botão (evento customizado para analytics interno)
+            // Track clique como evento padrão que aparece no Gerenciador de Anúncios
             if (typeof fbq !== 'undefined') {
-                fbq('trackCustom', 'WhatsAppButtonClick', {
-                    button_type: buttonElement.id,
-                    time_on_page: timeOnPage,
-                    page_url: window.location.href
+                fbq('track', 'CompleteRegistration', {
+                    content_name: 'WhatsApp Button Click',
+                    value: 0,
+                    currency: 'BRL'
                 });
             }
             
@@ -479,11 +479,20 @@
             redirectToWhatsApp(this);
         });
 
-        // Console tracking
-        console.log('Lead Magnet Page:', {
+        // FUNIL DE EVENTOS CORRETO:
+        // 1. PageView (aqui - pixel) ✅
+        // 2. Lead (N8N - quando envia mensagem WhatsApp) 
+        // 3. Contact (N8N - quando responde primeira mensagem)
+        // 4. ViewContent (N8N - quando recebe amostra grátis)
+        // 5. InitiateCheckout (N8N - quando gera PIX)
+        // 6. Purchase (N8N - quando paga PIX)
+        
+        // Console tracking para debug
+        console.log('Lead Magnet Page Loaded:', {
             origem: origem,
             trackingId: trackingId,
-            timestamp: new Date().toISOString()
+            timestamp: new Date().toISOString(),
+            note: 'PageView sent to Facebook. Next events via N8N Conversions API.'
         });
     </script>
 </body>
