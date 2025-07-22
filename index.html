@@ -1,513 +1,455 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🎨 Seus Desenhos Bíblicos Estão Prontos!</title>
-<meta name="facebook-domain-verification" content="jfml3bn8m95rqi0yh5m8ilzcvlb9k8" />
-  <!-- Facebook Pixel Code -->
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1022850959685608');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1022850959685608&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-<!-- End Facebook Pixel Code -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      color: #333;
-    }
-
-    .container {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
-      padding: 40px 30px;
-      max-width: 480px;
-      width: 100%;
-      text-align: center;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      animation: slideUp 0.6s ease-out;
-    }
-
-    @keyframes slideUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .header {
-      margin-bottom: 30px;
-    }
-
-    .main-title {
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: #2d3748;
-      margin-bottom: 10px;
-      line-height: 1.2;
-    }
-
-    .subtitle {
-      font-size: 1.1rem;
-      color: #666;
-      margin-bottom: 25px;
-    }
-
-    .product-image {
-      width: 120px;
-      height: 120px;
-      background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
-      border-radius: 50%;
-      margin: 0 auto 25px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-    }
-
-    .benefits {
-      margin: 30px 0;
-    }
-
-    .benefit-item {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      margin-bottom: 15px;
-      padding: 12px 15px;
-      background: rgba(103, 126, 234, 0.1);
-      border-radius: 10px;
-      border-left: 4px solid #667eea;
-      text-align: left;
-      animation: fadeInLeft 0.6s ease-out forwards;
-      opacity: 0;
-    }
-
-    .benefit-item:nth-child(1) { animation-delay: 0.2s; }
-    .benefit-item:nth-child(2) { animation-delay: 0.4s; }
-    .benefit-item:nth-child(3) { animation-delay: 0.6s; }
-    .benefit-item:nth-child(4) { animation-delay: 0.8s; }
-
-    @keyframes fadeInLeft {
-      from {
-        opacity: 0;
-        transform: translateX(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    .benefit-icon {
-      color: #667eea;
-      margin-right: 12px;
-      font-size: 1.2rem;
-    }
-
-    .benefit-text {
-      font-weight: 600;
-      color: #2d3748;
-    }
-
-    .price-section {
-      background: linear-gradient(45deg, #667eea, #764ba2);
-      color: white;
-      padding: 20px;
-      border-radius: 15px;
-      margin: 25px 0;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .price-section::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-      animation: shine 3s infinite;
-    }
-
-    @keyframes shine {
-      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-      100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-    }
-
-    .price-text {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 5px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .price-subtext {
-      font-size: 0.9rem;
-      opacity: 0.9;
-      position: relative;
-      z-index: 1;
-    }
-
-    .urgency {
-      background: #ff6b6b;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 25px;
-      font-weight: 600;
-      margin: 20px 0;
-      animation: urgencyPulse 2s infinite;
-    }
-
-    @keyframes urgencyPulse {
-      0%, 100% { transform: scale(1); background: #ff6b6b; }
-      50% { transform: scale(1.02); background: #ff5252; }
-    }
-
-    .cta-button {
-      background: linear-gradient(45deg, #25d366, #128c7e);
-      color: white;
-      padding: 18px 30px;
-      border: none;
-      border-radius: 50px;
-      font-size: 1.2rem;
-      font-weight: 700;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 20px;
-      transition: all 0.3s ease;
-      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
-      position: relative;
-      overflow: hidden;
-      min-width: 280px;
-    }
-
-    .cta-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
-    }
-
-    .cta-button:active {
-      transform: translateY(0);
-    }
-
-    .cta-button::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-      transition: left 0.5s;
-    }
-
-    .cta-button:hover::before {
-      left: 100%;
-    }
-
-    .whatsapp-icon {
-      margin-right: 10px;
-      font-size: 1.3rem;
-    }
-
-    .security-badges {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 20px;
-      opacity: 0.8;
-    }
-
-    .badge {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 0.8rem;
-      color: #666;
-    }
-
-    .progress-bar {
-      width: 100%;
-      height: 4px;
-      background: #e2e8f0;
-      border-radius: 2px;
-      margin: 15px 0;
-      overflow: hidden;
-    }
-
-    .progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, #667eea, #764ba2);
-      width: 0%;
-      border-radius: 2px;
-      animation: fillProgress 3s ease-out forwards;
-    }
-
-    @keyframes fillProgress {
-      to { width: 87%; }
-    }
-
-    .progress-text {
-      font-size: 0.9rem;
-      color: #666;
-      margin-top: 5px;
-    }
-
-    @media (max-width: 480px) {
-      .container {
-        padding: 30px 20px;
-        margin: 10px;
-      }
-      
-      .main-title {
-        font-size: 1.8rem;
-      }
-      
-      .cta-button {
-        min-width: 250px;
-        padding: 16px 25px;
-      }
-    }
-
-    .floating-elements {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      overflow: hidden;
-    }
-
-    .floating-emoji {
-      position: absolute;
-      font-size: 2rem;
-      opacity: 0.1;
-      animation: float 6s ease-in-out infinite;
-    }
-
-    .floating-emoji:nth-child(1) { left: 10%; animation-delay: 0s; }
-    .floating-emoji:nth-child(2) { left: 20%; animation-delay: 1s; }
-    .floating-emoji:nth-child(3) { left: 80%; animation-delay: 2s; }
-    .floating-emoji:nth-child(4) { left: 70%; animation-delay: 3s; }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      33% { transform: translateY(-20px) rotate(5deg); }
-      66% { transform: translateY(-10px) rotate(-5deg); }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎨 Receba Desenhos Bíblicos GRÁTIS!</title>
+    <meta name="facebook-domain-verification" content="jfml3bn8m95rqi0yh5m8ilzcvlb9k8" />
+    
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1022850959685608');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1022850959685608&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            animation: slideUp 0.6s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .gift-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+            display: block;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 32px;
+            margin-bottom: 15px;
+            line-height: 1.3;
+            font-weight: bold;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 18px;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+        
+        .free-badge {
+            background: linear-gradient(45deg, #FF6B6B, #FF8E8E);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 18px;
+            margin: 20px 0;
+            display: inline-block;
+            animation: pulse 2s infinite;
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .preview-box {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 2px dashed #e9ecef;
+        }
+        
+        .preview-title {
+            color: #495057;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .sample-items {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .sample-item {
+            background: white;
+            padding: 15px 10px;
+            border-radius: 10px;
+            font-size: 13px;
+            color: #6c757d;
+            border: 1px solid #dee2e6;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+        
+        .sample-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .benefits {
+            text-align: left;
+            margin: 30px 0;
+        }
+        
+        .benefit {
+            display: flex;
+            align-items: center;
+            margin: 12px 0;
+            color: #2c3e50;
+            font-size: 15px;
+            font-weight: 500;
+        }
+        
+        .benefit::before {
+            content: "✅";
+            margin-right: 12px;
+            font-size: 18px;
+        }
+        
+        .cta-button {
+            background: linear-gradient(45deg, #25D366, #128C7E);
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin: 25px 0;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+            position: relative;
+            overflow: hidden;
+            min-width: 300px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+        }
+        
+        .cta-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        
+        .whatsapp-icon {
+            margin-right: 10px;
+            font-size: 22px;
+        }
+        
+        .trust-signals {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+            font-size: 13px;
+            color: #6c757d;
+        }
+        
+        .trust-signal {
+            text-align: center;
+        }
+        
+        .trust-number {
+            font-size: 20px;
+            font-weight: bold;
+            color: #28a745;
+            display: block;
+        }
+        
+        .guarantee {
+            background: #e8f5e8;
+            color: #2d5f2d;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 14px;
+            margin: 20px 0;
+            border-left: 4px solid #28a745;
+        }
+        
+        .urgency-timer {
+            background: #ff4757;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            margin: 20px 0;
+            font-size: 14px;
+            animation: urgencyPulse 2s infinite;
+        }
+        
+        @keyframes urgencyPulse {
+            0%, 100% { background: #ff4757; }
+            50% { background: #ff3742; }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+                margin: 10px;
+            }
+            
+            h1 {
+                font-size: 26px;
+            }
+            
+            .cta-button {
+                padding: 18px 30px;
+                font-size: 18px;
+                min-width: 280px;
+            }
+            
+            .sample-items {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="floating-elements">
-    <div class="floating-emoji">🎨</div>
-    <div class="floating-emoji">📖</div>
-    <div class="floating-emoji">✨</div>
-    <div class="floating-emoji">🙏</div>
-  </div>
-
-  <div class="container">
-    <div class="header">
-      <div class="product-image">🎨</div>
-      <h1 class="main-title">Seus Desenhos Bíblicos Estão Prontos!</h1>
-      <p class="subtitle">Mais de <strong>90 desenhos</strong> para colorir e ensinar valores cristãos ✨</p>
+    <div class="container">
+        <span class="gift-icon">🎁</span>
+        
+        <h1>Receba Desenhos Bíblicos GRÁTIS!</h1>
+        
+        <p class="subtitle">
+            Baixe agora uma seleção especial de desenhos bíblicos para seus filhos colorirem e aprenderem sobre a fé cristã!
+        </p>
+        
+        <div class="free-badge">
+            🆓 TOTALMENTE GRATUITO
+        </div>
+        
+        <div class="preview-box">
+            <p class="preview-title">📱 Você receberá no WhatsApp:</p>
+            <div class="sample-items">
+                <div class="sample-item">🏔️ Noé e a Arca</div>
+                <div class="sample-item">👑 Rei Davi</div>
+                <div class="sample-item">✨ Jesus Cristo</div>
+                <div class="sample-item">🌈 A Criação</div>
+                <div class="sample-item">🐑 O Bom Pastor</div>
+                <div class="sample-item">⭐ Os Reis Magos</div>
+            </div>
+            <p style="font-size: 12px; color: #6c757d; margin-top: 10px;">
+                + Instruções para colorir e ensinar a história
+            </p>
+        </div>
+        
+        <div class="benefits">
+            <div class="benefit">PDF de alta qualidade para imprimir</div>
+            <div class="benefit">Histórias bíblicas explicadas</div>
+            <div class="benefit">Atividade educativa e divertida</div>
+            <div class="benefit">Entrega instantânea no WhatsApp</div>
+            <div class="benefit">Sem pegadinhas ou taxas escondidas</div>
+        </div>
+        
+        <div class="urgency-timer">
+            ⏰ Oferta por tempo limitado - Receba antes que expire!
+        </div>
+        
+        <a href="#" id="whatsapp-btn" class="cta-button">
+            <span class="whatsapp-icon">📱</span>
+            RECEBER GRÁTIS AGORA
+        </a>
+        
+        <div class="guarantee">
+            🔒 <strong>Garantia:</strong> Seus dados estão seguros. Não enviamos spam nem compartilhamos com terceiros.
+        </div>
+        
+        <div class="trust-signals">
+            <div class="trust-signal">
+                <span class="trust-number">1.200+</span>
+                Famílias beneficiadas
+            </div>
+            <div class="trust-signal">
+                <span class="trust-number">4.9⭐</span>
+                Avaliação média
+            </div>
+            <div class="trust-signal">
+                <span class="trust-number">100%</span>
+                Grátis
+            </div>
+        </div>
     </div>
 
-    <div class="benefits">
-      <div class="benefit-item">
-        <i class="fas fa-download benefit-icon"></i>
-        <span class="benefit-text">📥 Download imediato após o pagamento</span>
-      </div>
-      <div class="benefit-item">
-        <i class="fas fa-print benefit-icon"></i>
-        <span class="benefit-text">🖨️ Imprima quantas vezes quiser</span>
-      </div>
-      <div class="benefit-item">
-        <i class="fas fa-heart benefit-icon"></i>
-        <span class="benefit-text">📚 Histórias bíblicas educativas</span>
-      </div>
-      <div class="benefit-item">
-        <i class="fas fa-star benefit-icon"></i>
-        <span class="benefit-text">⭐ Qualidade profissional garantida</span>
-      </div>
-    </div>
-
-    <div class="price-section">
-      <div class="price-text">💰 Apenas R$ 10,00</div>
-      <div class="price-subtext">💳 Pagamento único • 🔄 Acesso vitalício</div>
-    </div>
-
-    <div class="urgency">
-      ⏰ Oferta limitada! Últimas 24h 🔥
-    </div>
-
-    <div class="progress-bar">
-      <div class="progress-fill"></div>
-    </div>
-    <div class="progress-text">
-      <strong>👨‍👩‍👧‍👦 87% dos pais</strong> já adquiriram hoje
-    </div>
-
-    <a href="#" id="whatsappButton" class="cta-button">
-      <i class="fab fa-whatsapp whatsapp-icon"></i>
-      QUERO MEUS DESENHOS AGORA
-    </a>
-
-    <div class="security-badges">
-      <div class="badge">
-        <i class="fas fa-shield-alt"></i>
-        <span>🔒 100% Seguro</span>
-      </div>
-      <div class="badge">
-        <i class="fas fa-medal"></i>
-        <span>🏆 Garantia</span>
-      </div>
-      <div class="badge">
-        <i class="fas fa-clock"></i>
-        <span>⚡ Entrega Imediata</span>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    // Configurações (mantendo a lógica original)
-    const NUMERO = "553192548410";
-    
-    // Mensagens otimizadas para conversão
-    const MENSAGENS = [
-      "Olá! Quero adquirir os desenhos bíblicos para colorir! Cupom: {fbclid}",
-      "Oi! Vi sobre os desenhos cristãos e tenho interesse! Cupom: {fbclid}", 
-      "Olá! Gostaria de receber os desenhos bíblicos educativos. Cupom: {fbclid}",
-      "Oi! Quero os desenhos para ensinar valores cristãos. Cupom: {fbclid}"
-    ];
-    
-    // Lógica de tracking (mantendo a original)
-    const urlParams = new URLSearchParams(window.location.search);
-    const fbclid = urlParams.get('fbclid');
-    const gclid = urlParams.get('gclid'); 
-    const utmSource = urlParams.get('utm_source');
-    const campaign = urlParams.get('campaign') || urlParams.get('utm_campaign') || '';
-    const source = urlParams.get('source') || '';
-    
-    let trackingId = 'organico';
-    let origem = 'organico';
-    
-    if (fbclid) {
-      trackingId = fbclid.substring(0, 12);
-      origem = 'facebook_ads';
-    } else if (gclid) {
-      trackingId = gclid.substring(0, 12);
-      origem = 'google_ads'; 
-    } else if (campaign) {
-      trackingId = campaign;
-      origem = 'campaign_' + (source || utmSource || 'unknown');
-    } else if (source === 'facebook') {
-      trackingId = 'fb_' + Date.now().toString().slice(-6);
-      origem = 'facebook_organic';
-    }
-    
-    const mensagemIndex = Math.floor(Math.random() * MENSAGENS.length);
-    const mensagem = MENSAGENS[mensagemIndex].replace('{fbclid}', trackingId);
-    const whatsappUrl = `https://wa.me/${NUMERO}?text=${encodeURIComponent(mensagem)}`;
-    
-    // Event tracking para analytics
-    console.log('Página carregada:', {
-      origem: origem,
-      trackingId: trackingId,
-      timestamp: new Date().toISOString()
-    });
-    
-    // Ação do botão
-    document.getElementById('whatsappButton').addEventListener('click', function(e) {
-      e.preventDefault();
-      
-      // Analytics do clique
-      console.log('Botão clicado:', {
-        origem: origem,
-        trackingId: trackingId,
-        timestamp: new Date().toISOString()
-      });
-      
-      // Redirecionamento com feedback visual
-      this.innerHTML = '<i class="fas fa-spinner fa-spin whatsapp-icon"></i>Redirecionando...';
-      this.style.background = 'linear-gradient(45deg, #128c7e, #075e54)';
-      
-      setTimeout(() => {
-        window.location.href = whatsappUrl;
-      }, 800);
-      
-      // Fallback
-      setTimeout(() => {
-        if (document.visibilityState === 'visible') {
-          window.open(whatsappUrl, '_self');
+    <script>
+        // Configurações originais mantidas
+        const NUMERO = "553192548410";
+        
+        // Mensagens otimizadas para LEAD MAGNET GRÁTIS
+        const MENSAGENS = [
+            "Olá! Vim do Facebook e quero receber os desenhos bíblicos GRÁTIS! 🎨",
+            "Oi! Gostaria de baixar a amostra gratuita dos desenhos cristãos! ✨", 
+            "Olá! Quero receber os desenhos bíblicos gratuitos para meus filhos! 📖",
+            "Oi! Vi sobre os desenhos para colorir grátis e tenho interesse! 🙏"
+        ];
+        
+        // Tracking logic mantida
+        const urlParams = new URLSearchParams(window.location.search);
+        const fbclid = urlParams.get('fbclid');
+        const gclid = urlParams.get('gclid'); 
+        const utmSource = urlParams.get('utm_source');
+        const campaign = urlParams.get('campaign') || urlParams.get('utm_campaign') || '';
+        const source = urlParams.get('source') || '';
+        
+        let trackingId = 'organico';
+        let origem = 'organico';
+        
+        if (fbclid) {
+            trackingId = fbclid.substring(0, 12);
+            origem = 'facebook_ads';
+        } else if (gclid) {
+            trackingId = gclid.substring(0, 12);
+            origem = 'google_ads'; 
+        } else if (campaign) {
+            trackingId = campaign;
+            origem = 'campaign_' + (source || utmSource || 'unknown');
+        } else if (source === 'facebook') {
+            trackingId = 'fb_' + Date.now().toString().slice(-6);
+            origem = 'facebook_organic';
         }
-      }, 2000);
-    });
-
-    // Efeitos de urgência dinâmicos
-    setInterval(() => {
-      const urgencyElement = document.querySelector('.urgency');
-      urgencyElement.style.transform = 'scale(1.02)';
-      setTimeout(() => {
-        urgencyElement.style.transform = 'scale(1)';
-      }, 200);
-    }, 5000);
-
-    // Contador de visitantes simulado (para criar urgência social)
-    let visitorsCount = 87 + Math.floor(Math.random() * 13);
-    
-    setInterval(() => {
-      if (Math.random() > 0.7) {
-        visitorsCount += Math.floor(Math.random() * 3) + 1;
-        if (visitorsCount > 95) visitorsCount = 87 + Math.floor(Math.random() * 8);
         
-        document.querySelector('.progress-text').innerHTML = 
-          `<strong>👨‍👩‍👧‍👦 ${visitorsCount}% dos pais</strong> já adquiriram hoje`;
+        // Mensagem aleatória
+        const mensagemIndex = Math.floor(Math.random() * MENSAGENS.length);
+        const mensagem = MENSAGENS[mensagemIndex];
+        const whatsappUrl = `https://wa.me/${NUMERO}?text=${encodeURIComponent(mensagem)}`;
         
-        document.querySelector('.progress-fill').style.width = visitorsCount + '%';
-      }
-    }, 8000);
-  </script>
+        // Track eventos customizados do Facebook
+        setTimeout(() => {
+            if (typeof fbq !== 'undefined') {
+                // ViewContent após 2 segundos (engajamento)
+                fbq('track', 'ViewContent', {
+                    content_name: 'Desenhos Bíblicos Grátis',
+                    content_category: 'Lead Magnet',
+                    content_type: 'product',
+                    value: 0,
+                    currency: 'BRL'
+                });
+            }
+        }, 2000);
+        
+        // Ação do botão
+        document.getElementById('whatsapp-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Track Lead event
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Lead', {
+                    content_name: 'Desenhos Bíblicos Grátis',
+                    content_category: 'Lead Magnet',
+                    value: 0,
+                    currency: 'BRL'
+                });
+            }
+            
+            // Feedback visual
+            this.innerHTML = '<span class="whatsapp-icon">📱</span>Abrindo WhatsApp...';
+            this.style.background = 'linear-gradient(45deg, #128c7e, #075e54)';
+            
+            // Redirecionamento
+            setTimeout(() => {
+                window.location.href = whatsappUrl;
+            }, 500);
+            
+            // Fallback
+            setTimeout(() => {
+                if (document.visibilityState === 'visible') {
+                    window.open(whatsappUrl, '_self');
+                }
+            }, 1500);
+        });
+
+        // Console tracking
+        console.log('Lead Magnet Page:', {
+            origem: origem,
+            trackingId: trackingId,
+            timestamp: new Date().toISOString()
+        });
+    </script>
 </body>
 </html>
